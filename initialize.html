@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HPYS - Giriş</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
+</head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                    <h1>T. C. Gıda, Tarım ve Hayvancılık Bakanlığı <br> Hayvan Pasaportu Yönetim Sistemi</h1>
+            </div>
+            <input class="btn btn-sm btn-default btn-block" type="submit" value="Çıkış" id="logout">
+            <div class="clearfix"><br></div>
+            <div class="pages">
+                <input class="btn btn-sm btn-default" type="submit" value="Yeni Hayvan" id="initialize" style="background-color:#eee;">
+                <input class="btn btn-sm btn-default" type="submit" value="Yeni Sahip" id="ownerinit">
+                <input class="btn btn-sm btn-default" type="submit" value="Veri Tabanı" id="database">
+                <input class="btn btn-sm btn-default" type="submit" value="Etiket Yenileme" id="replace">
+                <input class="btn btn-sm btn-default" type="submit" value="Veteriner Şifresi Alma" id="vetget" >
+            </div>
+            <div class="form container">
+                <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="animalId">Küpe Numarası:</label>
+                    <input type="text" class="form-control" id="animalId">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="birthDate">Doğum Tarihi:</label>
+                    <input type="text" class="form-control" id="birthDate">
+                </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="gender">Cinsiyet:</label>
+                    <input type="text" class="form-control" id="gender">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="breed">Cins:</label>
+                    <input type="text" class="form-control" id="breed">
+                </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="motherId">Anne Küpe Numarası:</label>
+                    <input type="text" class="form-control" id="motherId">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="birthFarmNo">Doğduğu Çiftlik No:</label>
+                    <input type="text" class="form-control" id="birthFarmNo">
+                </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="currentFarmNo">Mevcut Çiftlik No:</label>
+                    <input type="text" class="form-control" id="currentFarmNo">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="farmChangeDate">Nakil Tarihi:</label>
+                    <input type="text" class="form-control" id="farmChangeDate">
+                </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="exportCountryCode">İthal Edildiği Ülke:</label>
+                    <input type="text" class="form-control" id="exportCountryCode">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exportDate">İthalat Tarihi:</label>
+                    <input type="text" class="form-control" id="exportDate">
+                </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="deathDate">Ölüm Tarihi:</label>
+                    <input type="text" class="form-control" id="deathDate">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="deathPlace">Ölüm Yeri:</label>
+                    <input type="text" class="form-control" id="deathPlace">
+                </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="alumVaccine">Şap Aşısı:</label>
+                    <input type="text" class="form-control" id="alumVaccine">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="brusellosisVaccine">Brusella Aşışı:</label>
+                    <input type="text" class="form-control" id="brusellosisVaccine">
+                </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="pasturellaVaccine">Pastürella Aşısı:</label>
+                    <input type="text" class="form-control" id="pasturellaVaccine">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="otherVaccine">Diğer Aşı:</label>
+                    <input type="text" class="form-control" id="otherVaccine">
+                </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="ownerTc">Sahip T. C. Kimlik No:</label>
+                        <input type="text" class="form-control" id="ownerTc">
+                    </div>
+                </div>
+                
+                <input class="btn btn-sm btn-danger" type="submit" value="Sisteme Kaydet" id="create">
+            </div>
+        </div>
+        
+
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="js/init.js"></script>
+    </body>
+</html>

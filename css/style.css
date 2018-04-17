@@ -1,0 +1,71 @@
+body {
+    font-size: 62.5%;
+
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#logout {
+    background-color:#eee;
+}
+
+.header {
+    width: 80%;
+    margin: 0 auto;
+    float: left;
+}
+
+h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+#logout{
+    display: block;
+    margin: 1rem auto;
+    width: 20%;
+    float: right;
+}
+
+.pages {
+    margin-top: 3rem;
+    margin-left: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.form {
+    width: 80%;
+    margin: 3rem auto;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    padding-right: 10px;
+}
+
+input {
+    margin-right: 10px;
+}
+
+p {
+    padding-right: 1rem;
+}
+
+textarea {
+    margin-right: 1rem;
+}
+
+#encrypt{
+    margin: 2rem 1rem;
+}

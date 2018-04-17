@@ -1,0 +1,30 @@
+body {
+    font-size: 62.5%;
+}
+
+.header {
+    width: 50%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 3rem auto;
+}
+
+.logo{
+    width: 20%;
+    display: block;
+    margin: 0 auto;
+}
+
+.login{
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+}
+
+.giris {
+    margin: 25vh auto;
+}
