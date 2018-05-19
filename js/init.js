@@ -1,12 +1,12 @@
 (function(){
     // Initialize Firebase   
     var config = {
-      apiKey: "AIzaSyBJ4OZ8cYm-_NP6bSxRS2vsLyKagMKTCis",
-      authDomain: "nfc-animal-passport-84895.firebaseapp.com",
-      databaseURL: "https://nfc-animal-passport-84895.firebaseio.com",
-      projectId: "nfc-animal-passport-84895",
-      storageBucket: "nfc-animal-passport-84895.appspot.com",
-      messagingSenderId: "498813543279"
+      apiKey: "AIzaSyCmz5KApctRSYvXpIY-93BLU4U-hq1F1ck",
+    authDomain: "demoproject-8d314.firebaseapp.com",
+    databaseURL: "https://demoproject-8d314.firebaseio.com",
+    projectId: "demoproject-8d314",
+    storageBucket: "demoproject-8d314.appspot.com",
+    messagingSenderId: "650020504138"
     };
     firebase.initializeApp(config);
     var db = firebase.firestore();
@@ -33,33 +33,42 @@
     btnReplace.addEventListener('click', e => {
       document.location.href = 'replace.html';
     });
-    
+    function getUnixTime (val) {
+      var date = new Date (val);
+      return Math.floor(date.getTime()/1000);
+    }
+
+    function gender(val){
+      if (val == "M"){ return false;}
+      else {return true;}
+    }
+
     btnCreate.addEventListener('click', e => {
         var docData = {
-          alumVaccine: document.getElementById("alumVaccine").value,
+          iD:document.getElementById("animalId").value,
           birthFarmNo: document.getElementById("birthFarmNo").value,
-          birthdate: document.getElementById("birthDate").value,
+          birthdate: getUnixTime(document.getElementById("birthDate").value),
           breed:document.getElementById("breed").value,
-          brusellosisVaccine:document.getElementById("brusellosisVaccine").value,
+          //brusellosisVaccine:document.getElementById("brusellosisVaccine").value,
           currentFarmNo:document.getElementById("currentFarmNo").value,
-          deathDate:document.getElementById("deathDate").value,
+          deathDate:getUnixTime(document.getElementById("deathDate").value),
           deathPlace:document.getElementById("deathPlace").value,
           eSignDirector:null,//document.getElementById("eSignDirector").value,
           eSignOwner:null,//document.getElementById("eSignOwner").value,
           exportCountryCode:document.getElementById("exportCountryCode").value,
-          exportDate:document.getElementById("exportDate").value,
-          farmChangeDate:document.getElementById("farmChangeDate").value,
-          id:document.getElementById("animalId").value,
-          isFemale:document.getElementById("gender").value,
+          exportDate:getUnixTime(document.getElementById("exportDate").value),
+          farmChangeDate:getUnixTime(document.getElementById("farmChangeDate").value),
+          female:gender(document.getElementById("gendermale").value),
           motherId:document.getElementById("motherId").value,
           ownerTc:document.getElementById("ownerTc").value,
-          pasturellaVaccine:document.getElementById("pasturellaVaccine").value,
-          otherVaccine:document.getElementById("otherVaccine").value,
-          operations:null,//document.getElementById("operations").value
+          //pasturellaVaccine:document.getElementById("pasturellaVaccine").value,
+          //otherVaccine:document.getElementById("otherVaccine").value,
+          operations:[],//document.getElementById("operations").value
           slaughterhouseName:null,
           slaughterhouseAddress:null,
           slaughterLicenseNumber:null,
-          slaughterDate:null
+          slaughterDate:null,
+          vaccines:[]
           /* Örnek
           stringExample: "Hello world!",
           booleanExample: true,
@@ -75,7 +84,7 @@
           }
           */
       };
-      db.collection("Animals").doc(docData.id).set(docData);
+      db.collection("Animals").doc(docData.iD).set(docData);
     });
     
     firebase.auth().onAuthStateChanged(firebaseUser => {

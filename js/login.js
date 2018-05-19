@@ -1,12 +1,12 @@
 (function(){
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyBJ4OZ8cYm-_NP6bSxRS2vsLyKagMKTCis",
-  authDomain: "nfc-animal-passport-84895.firebaseapp.com",
-  databaseURL: "https://nfc-animal-passport-84895.firebaseio.com",
-  projectId: "nfc-animal-passport-84895",
-  storageBucket: "nfc-animal-passport-84895.appspot.com",
-  messagingSenderId: "498813543279"
+  apiKey: "AIzaSyCmz5KApctRSYvXpIY-93BLU4U-hq1F1ck",
+    authDomain: "demoproject-8d314.firebaseapp.com",
+    databaseURL: "https://demoproject-8d314.firebaseio.com",
+    projectId: "demoproject-8d314",
+    storageBucket: "demoproject-8d314.appspot.com",
+    messagingSenderId: "650020504138"
 };
 firebase.initializeApp(config);
 

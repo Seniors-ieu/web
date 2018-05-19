@@ -1,12 +1,12 @@
 (function(){
     // Initialize Firebase   
     var config = {
-      apiKey: "AIzaSyBJ4OZ8cYm-_NP6bSxRS2vsLyKagMKTCis",
-      authDomain: "nfc-animal-passport-84895.firebaseapp.com",
-      databaseURL: "https://nfc-animal-passport-84895.firebaseio.com",
-      projectId: "nfc-animal-passport-84895",
-      storageBucket: "nfc-animal-passport-84895.appspot.com",
-      messagingSenderId: "498813543279"
+      apiKey: "AIzaSyCmz5KApctRSYvXpIY-93BLU4U-hq1F1ck",
+    authDomain: "demoproject-8d314.firebaseapp.com",
+    databaseURL: "https://demoproject-8d314.firebaseio.com",
+    projectId: "demoproject-8d314",
+    storageBucket: "demoproject-8d314.appspot.com",
+    messagingSenderId: "650020504138"
     };
     firebase.initializeApp(config);
     var db = firebase.firestore();
@@ -18,7 +18,8 @@
     const btnVetGet = document.getElementById("vetget");
     const btnCall = document.getElementById("call");
     const btnReplace = document.getElementById("replace");
-
+    //Datatable
+    
     
     btnLogout.addEventListener('click', e => {
       firebase.auth().signOut();
@@ -49,13 +50,14 @@
             if (doc.exists) {
                 console.log("Tıklandı");
                 var myData = doc.data();
-                document.getElementById("animalId").value = myData.id;
+
+                document.getElementById("animalId").value = myData.iD;
                 document.getElementById("birthDate").value = myData.birthdate;
                 document.getElementById("alumVaccine").value = myData.alumVaccine;
                 document.getElementById("birthFarmNo").value = myData.birthFarmNo;
                 document.getElementById("birthDate").value = myData.birthdate;
                 document.getElementById("breed").value = myData.breed;
-                document.getElementById("gender").value = myData.isFemale;
+                document.getElementById("gender").value = myData.female;
                 document.getElementById("brusellosisVaccine").value = myData.brusellosisVaccine;
                 document.getElementById("currentFarmNo").value = myData.currentFarmNo;
                 document.getElementById("deathDate").value = myData.deathDate;
@@ -71,11 +73,11 @@
                 document.getElementById("otherVaccine").value = myData.otherVaccine;
                 //document.getElementById("operations").value = myData.Operations;
 
-                db.collection("Owners").doc(document.getElementById("tc").value).get().then(function(doc) {
+                db.collection("Owners").doc(myData.ownerTc).get().then(function(doc) {
                   if (doc.exists) {
-                      console.log("Tıklandı");
+                      console.log("Tıklandı..");
                       var myData = doc.data();
-                      document.getElementById("farmAdress").value = myData.farmAdress;
+                      document.getElementById("farmAddress").value = myData.farmAddress;
                       document.getElementById("farmCityCode").value = myData.farmCityCode;
                       document.getElementById("farmEmail").value = myData.farmEmail;
                       document.getElementById("farmFaxNumber").value = myData.farmFaxNumber;
@@ -84,7 +86,7 @@
                       document.getElementById("farmPhoneNumber").value = myData.farmPhoneNumber;
                       document.getElementById("name").value = myData.name;
                       document.getElementById("lastName").value = myData.lastName;
-                      document.getElementById("residenceAdress").value = myData.residenceAdress;
+                      document.getElementById("residenceAddress").value = myData.residenceAddress;
                       //document.getElementById("tc").value = myData.tc;
                       
                   } else {

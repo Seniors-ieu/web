@@ -19,33 +19,57 @@
 
     <body>
         <div class="container">
-            <div class="header">
-                    <h1>T. C. Gıda, Tarım ve Hayvancılık Bakanlığı <br> Hayvan Pasaportu Yönetim Sistemi</h1>
-            </div>
-            <input class="btn btn-sm btn-default btn-block" type="submit" value="Çıkış" id="logout">
-            <div class="clearfix"><br></div>
-            <div class="pages">
-                <input class="btn btn-sm btn-default" type="submit" value="Yeni Hayvan" id="initialize" style="background-color:#eee;">
-                <input class="btn btn-sm btn-default" type="submit" value="Yeni Sahip" id="ownerinit">
-                <input class="btn btn-sm btn-default" type="submit" value="Veri Tabanı" id="database">
-                <input class="btn btn-sm btn-default" type="submit" value="Etiket Yenileme" id="replace">
-                <input class="btn btn-sm btn-default" type="submit" value="Veteriner Şifresi Alma" id="vetget" >
-            </div>
+            <nav class="navbar navbar-default navbar-expand-xl navbar-light">
+                <div class="navbar-header d-flex col">
+                    <a class="navbar-brand" href="#"><i class="fa fa-cube"></i>Hayvan Pasaportu <br> &nbsp; Yönetim Sistemi</a>  		
+                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collection of nav links, forms, and other content for toggling -->
+                <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item "><a href="#" class="nav-link" id="database">Veri Tabanı</a></li>
+                        <li class="nav-item dropdown active">
+                            <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Yeni Kayıt<b class="caret"></b></a>
+                            <ul class="dropdown-menu">					
+                                <li><a href="#" class="dropdown-item" id="initialize">Yeni Hayvan</a></li>
+                                <li><a href="#" class="dropdown-item" id="ownerinit">Yeni Hayvan Sahibi</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link" id="replace">Etiket Yenileme</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" id="vetget">Veteriner Şifresi Alma</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right ml-auto">
+                        <li class="nav-item dropdown">
+                            <a href="#" data-toggle="dropdown" class="nav-link user-action">Hoşgeldiniz, Hüseyin Bulut <b class="caret"></b></a>
+                        </li>
+                        <a href="#" class="nav-link" id="logout">Çıkış</a>
+                    </ul>
+                </div>
+            </nav>
             <div class="form container">
                 <div class="row">
                 <div class="form-group col-md-6">
                     <label for="animalId">Küpe Numarası:</label>
-                    <input type="text" class="form-control" id="animalId">
+                    <input type="text" class="form-control" id="animalId" maxlength="13">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="birthDate">Doğum Tarihi:</label>
-                    <input type="text" class="form-control" id="birthDate">
+                    <input type="date" class="form-control" id="birthDate">
                 </div>
                 </div>
                 <div class="row">
                 <div class="form-group col-md-6">
                     <label for="gender">Cinsiyet:</label>
-                    <input type="text" class="form-control" id="gender">
+                    <input type="radio" class="form-control" id="gendermale" value="M" name="gender" checked>
+                    <label for="gendermale">Erkek</label>
+                    <br>
+                    <input type="radio" class="form-control" id="genderfemale" value="F" name="gender">
+                    <label for="genderfemale">Dişi</label>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="breed">Cins:</label>
@@ -55,37 +79,37 @@
                 <div class="row">
                 <div class="form-group col-md-6">
                     <label for="motherId">Anne Küpe Numarası:</label>
-                    <input type="text" class="form-control" id="motherId">
+                    <input type="text" class="form-control" id="motherId" maxlength="13">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="birthFarmNo">Doğduğu Çiftlik No:</label>
-                    <input type="text" class="form-control" id="birthFarmNo">
+                    <input type="text" class="form-control" id="birthFarmNo" maxlength="10">
                 </div>
                 </div>
                 <div class="row">
                 <div class="form-group col-md-6">
                     <label for="currentFarmNo">Mevcut Çiftlik No:</label>
-                    <input type="text" class="form-control" id="currentFarmNo">
+                    <input type="text" class="form-control" id="currentFarmNo" maxlength="10">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="farmChangeDate">Nakil Tarihi:</label>
-                    <input type="text" class="form-control" id="farmChangeDate">
+                    <input type="date" class="form-control" id="farmChangeDate">
                 </div>
                 </div>
                 <div class="row">
                 <div class="form-group col-md-6">
                     <label for="exportCountryCode">İthal Edildiği Ülke:</label>
-                    <input type="text" class="form-control" id="exportCountryCode">
+                    <input type="text" class="form-control" id="exportCountryCode" maxlength="2">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="exportDate">İthalat Tarihi:</label>
-                    <input type="text" class="form-control" id="exportDate">
+                    <input type="date" class="form-control" id="exportDate">
                 </div>
                 </div>
                 <div class="row">
                 <div class="form-group col-md-6">
                     <label for="deathDate">Ölüm Tarihi:</label>
-                    <input type="text" class="form-control" id="deathDate">
+                    <input type="date" class="form-control" id="deathDate">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="deathPlace">Ölüm Yeri:</label>
@@ -116,7 +140,7 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="ownerTc">Sahip T. C. Kimlik No:</label>
-                        <input type="text" class="form-control" id="ownerTc">
+                        <input type="text" class="form-control" id="ownerTc" maxlength="11">
                     </div>
                 </div>
                 

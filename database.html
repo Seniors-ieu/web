@@ -19,27 +19,47 @@
 
     <body>
         <div class="container">
-            <div class="header">
-                    <h1>T. C. Gıda, Tarım ve Hayvancılık Bakanlığı <br> Hayvan Pasaportu Yönetim Sistemi</h1>
-            </div>
-            <input class="btn btn-sm btn-default btn-block" type="submit" value="Çıkış" id="logout">
-            <div class="clearfix"><br></div>
-            <div class="pages">
-                <input class="btn btn-sm btn-default" type="submit" value="Yeni Hayvan" id="initialize">
-                <input class="btn btn-sm btn-default" type="submit" value="Yeni Sahip" id="ownerinit">
-                <input class="btn btn-sm btn-default" type="submit" value="Veri Tabanı" id="database" style="background-color:#eee;">
-                <input class="btn btn-sm btn-default" type="submit" value="Etiket Yenileme" id="replace" >
-                <input class="btn btn-sm btn-default" type="submit" value="Veteriner Şifresi Alma" id="vetget" >
-            </div>
-            <div class="form form-inline">
-                <div class="form-group">
-                    <label for="animalId">Küpe numarasıyla arama:</label>
-                    <input type="text" class="form-control" id="RetrieveAnimalId">
+            <nav class="navbar navbar-default navbar-expand-xl navbar-light">
+                <div class="navbar-header d-flex col">
+                    <a class="navbar-brand" href="#"><i class="fa fa-cube"></i>Hayvan Pasaportu <br> &nbsp; Yönetim Sistemi</a>  		
+                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 </div>
-                <input class="btn btn-sm btn-danger" type="submit" value="Çağır" id="call">
+                <!-- Collection of nav links, forms, and other content for toggling -->
+                <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item active "><a href="#" class="nav-link" id="database">Veri Tabanı</a></li>
+                        <li class="nav-item dropdown">
+                            <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Yeni Kayıt<b class="caret"></b></a>
+                            <ul class="dropdown-menu">					
+                                <li><a href="#" class="dropdown-item" id="initialize">Yeni Hayvan</a></li>
+                                <li><a href="#" class="dropdown-item" id="ownerinit">Yeni Hayvan Sahibi</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link" id="replace">Etiket Yenileme</a></li>
+                        <li class="nav-item "><a href="#" class="nav-link" id="vetget">Veteriner Şifresi Alma</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right ml-auto">
+                        <li class="nav-item dropdown">
+                            <a href="#" data-toggle="dropdown" class="nav-link user-action">Hoşgeldiniz, Hüseyin Bulut <b class="caret"></b></a>
+                        </li>
+                        <a href="#" class="nav-link" id="logout">Çıkış</a>
+                    </ul>
+                </div>
+            </nav>
+            <div class="form ">
+                <div class="form-group form-inline ">
+                    <label for="animalId">Küpe numarasıyla arama:</label>
+                    <input type="text" class="form-control form-inline" id="RetrieveAnimalId">
+                </div>
+                <input class="btn btn-sm btn-danger " type="submit" value="Çağır" id="call">
             </div>
 
-            <div class="form container">
+            <div class="form container ">
                     <div class="row">
                     <div class="form-group col-md-6">
                         <label for="animalId">Küpe Numarası:</label>
@@ -122,8 +142,8 @@
                     </div>
                     <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="farmAdress">Çiftlik Adresi:</label>
-                                <input type="text" class="form-control" id="farmAdress">
+                                <label for="farmAddress">Çiftlik Adresi:</label>
+                                <input type="text" class="form-control" id="farmAddress">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="farmCityCode">Çiftlik Şehir Kodu:</label>
@@ -166,8 +186,8 @@
                                 <input type="text" class="form-control" id="lastName">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="residenceAdress">İkamet Adresi:</label>
-                                <input type="text" class="form-control" id="residenceAdress">
+                                <label for="residenceAddress">İkamet Adresi:</label>
+                                <input type="text" class="form-control" id="residenceAddress">
                             </div>
                             </div>
                             <div class="row">

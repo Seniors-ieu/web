@@ -3,18 +3,56 @@
         <title>HPYS - Hayvan Pasaportu Yönetim Sistemi</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="css/index.css">
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     </head>
-    <body>
+    <body style="background-color: rgba(0, 0, 0, 0.1) !important;">
         <div class="header">
-                <h1>T. C. Gıda, Tarım ve Hayvancılık Bakanlığı Hayvan Pasaportu Yönetim Sistemi</h1>
+                <h1 style="color: rgb(31,134,187); -webkit-text-stroke: .5px rgb(23, 97, 134)">T. C. Gıda, Tarım ve Hayvancılık Bakanlığı Hayvan Pasaportu Yönetim Sistemi</h1>
         </div>
         
-        <img class="logo" src="img/Gıda,_Tarım_ve_Hayvancılık_Bakanlığı.png" alt="Bakanlık logosu">
-        <a href="login.html" class="login btn btn-primary">Kullanıcı Girişi</a>
 
+
+        <img class="logo" src="img/Gıda,_Tarım_ve_Hayvancılık_Bakanlığı.png" alt="Bakanlık logosu">
+        <div class="text-center">
+                <a href="#myModal" class="trigger-btn login btn btn-primary" data-toggle="modal">Kullanıcı Girişi</a>
+        </div>
+
+        <div id="myModal" class="modal fade">
+                <div class="modal-dialog modal-login">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="avatar">
+                                <img src="img/avatar.png" alt="Avatar">
+                            </div>				
+                            <h4 class="modal-title">Kullanıcı Girişi</h4>	
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <fieldset>
+                                    <div class="form-group">
+                                      <input class="form-control" placeholder="E-mail" name="email" type="text" id="email">
+                                  </div>
+                                  <div class="form-group">
+                                      <input class="form-control" placeholder="Şifre" name="password" type="password" value="" id="password">
+                                  </div>
+                                  <div class="checkbox">
+                                      <label>
+                                          <input name="remember" type="checkbox" value="Remember Me"> Beni Hatırla
+                                      </label>
+                                  </div>
+                                  <input class="btn btn-lg btn-success btn-block" type="submit" value="Giriş" id="login">
+                              </fieldset>
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="bg"></div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+        <script src="js/login.js"></script>
     </body>
 </html>

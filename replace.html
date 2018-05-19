@@ -19,32 +19,52 @@
 
     <body>
         <div class="container">
-            <div class="header">
-                    <h1>T. C. Gıda, Tarım ve Hayvancılık Bakanlığı <br> Hayvan Pasaportu Yönetim Sistemi</h1>
-            </div>
-            <input class="btn btn-sm btn-default btn-block" type="submit" value="Çıkış" id="logout">
-            <div class="clearfix"><br></div>
-            <div class="pages">
-                <input class="btn btn-sm btn-default" type="submit" value="Yeni Hayvan" id="initialize">
-                <input class="btn btn-sm btn-default" type="submit" value="Yeni Sahip" id="ownerinit">
-                <input class="btn btn-sm btn-default" type="submit" value="Veri Tabanı" id="database">
-                <input class="btn btn-sm btn-default" type="submit" value="Etiket Yenileme" id="replace" style="background-color:#eee;">
-                <input class="btn btn-sm btn-default" type="submit" value="Veteriner Şifresi Alma" id="vetget" >
-            </div>
-            <div class="form form-inline">
-                <div class="form-group">
-                    <label for="animalId">Tekrar etiketini oluşturmak istediğiniz hayvanın küpe numarasını girin:</label>
-                    <input type="text" class="form-control" id="RetrieveAnimalId">
+            <nav class="navbar navbar-default navbar-expand-xl navbar-light">
+                <div class="navbar-header d-flex col">
+                    <a class="navbar-brand" href="#"><i class="fa fa-cube"></i>Hayvan Pasaportu <br> &nbsp; Yönetim Sistemi</a>  		
+                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 </div>
-                <input class="btn btn-sm btn-danger" type="submit" value="Getir" id="str">
+                <!-- Collection of nav links, forms, and other content for toggling -->
+                <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item "><a href="#" class="nav-link" id="database">Veri Tabanı</a></li>
+                        <li class="nav-item dropdown">
+                            <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Yeni Kayıt<b class="caret"></b></a>
+                            <ul class="dropdown-menu">					
+                                <li><a href="#" class="dropdown-item" id="initialize">Yeni Hayvan</a></li>
+                                <li><a href="#" class="dropdown-item" id="ownerinit">Yeni Hayvan Sahibi</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item active"><a href="#" class="nav-link" id="replace">Etiket Yenileme</a></li>
+                        <li class="nav-item "><a href="#" class="nav-link" id="vetget">Veteriner Şifresi Alma</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right ml-auto">
+                        <li class="nav-item dropdown">
+                            <a href="#" data-toggle="dropdown" class="nav-link user-action">Hoşgeldiniz, Hüseyin Bulut <b class="caret"></b></a>
+                        </li>
+                        <a href="#" class="nav-link" id="logout">Çıkış</a>
+                    </ul>
+                </div>
+            </nav>
+            <div class="form">
+                <div class="form-group form-inline col-md-10">
+                    <label for="animalId">Tekrar etiketini oluşturmak istediğiniz hayvanın küpe numarasını girin:</label>
+                    <input type="text" class="form-control form-inline" id="RetrieveAnimalId">
+                </div>
+                <input class="btn btn-sm btn-danger form-inline col-md-1"  type="submit" value="Getir" id="str">
             </div>
-
-            <div class="form form-inline">
+            <div class="col-md-3"></div>
+            <div class="form  col-md-6">
                     <p>Etiket İçeriği</p>
                     <textarea name="" id="text-field" cols="60" rows="10">
 
                     </textarea>
-                    <input class="btn btn-sm btn-danger" type="submit" value="Yaz" id="str">
+                    <input class="btn btn-sm btn-danger" style="margin-left: 40%" type="submit" value="Yaz" id="write">
                 </div>
         </div>
         
