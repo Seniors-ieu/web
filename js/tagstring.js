@@ -160,6 +160,7 @@
                         
                     } else {
                         // doc.data() will be undefined in this case
+                        alert("Küpe numarası yanlış.");
                         console.log(doc);
                     }
                 }).catch(function(error) {

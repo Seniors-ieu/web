@@ -1,7 +1,7 @@
 (function(){
     // Initialize Firebase   
     var config = {
-      apiKey: "AIzaSyCmz5KApctRSYvXpIY-93BLU4U-hq1F1ck",
+    apiKey: "AIzaSyCmz5KApctRSYvXpIY-93BLU4U-hq1F1ck",
     authDomain: "demoproject-8d314.firebaseapp.com",
     databaseURL: "https://demoproject-8d314.firebaseio.com",
     projectId: "demoproject-8d314",
@@ -33,6 +33,23 @@
     btnReplace.addEventListener('click', e => {
       document.location.href = 'replace.html';
     });
+//set user name field
+setTimeout(function(){
+  const username = document.getElementById("username");
+  var userid = firebase.auth().currentUser.uid;
+  firebase.firestore().collection("Users").doc(userid).get().then(function(doc) {
+    if (doc.exists) {
+      console.log(doc.data().nameLastname);
+      username.innerHTML = doc.data().nameLastname;
+    } else {
+        // doc.data() will be undefined in this case
+        console.log(doc);
+    }
+}).catch(function(error) {
+    console.log("Error getting document:", error);
+});
+},1000);
+//
     function getUnixTime (val) {
       var date = new Date (val);
       return Math.floor(date.getTime()/1000);
@@ -53,8 +70,8 @@
           currentFarmNo:document.getElementById("currentFarmNo").value,
           deathDate:getUnixTime(document.getElementById("deathDate").value),
           deathPlace:document.getElementById("deathPlace").value,
-          eSignDirector:null,//document.getElementById("eSignDirector").value,
-          eSignOwner:null,//document.getElementById("eSignOwner").value,
+          eSignDirector:"",//document.getElementById("eSignDirector").value,
+          eSignOwner:"",//document.getElementById("eSignOwner").value,
           exportCountryCode:document.getElementById("exportCountryCode").value,
           exportDate:getUnixTime(document.getElementById("exportDate").value),
           farmChangeDate:getUnixTime(document.getElementById("farmChangeDate").value),
@@ -64,27 +81,17 @@
           //pasturellaVaccine:document.getElementById("pasturellaVaccine").value,
           //otherVaccine:document.getElementById("otherVaccine").value,
           operations:[],//document.getElementById("operations").value
-          slaughterhouseName:null,
-          slaughterhouseAddress:null,
-          slaughterLicenseNumber:null,
-          slaughterDate:null,
+          slaughterhouseName:"",
+          slaughterhouseAddress:"",
+          slaughterLicenseNumber:"",
+          slaughterDate:"",
           vaccines:[]
-          /* Örnek
-          stringExample: "Hello world!",
-          booleanExample: true,
-          numberExample: 3.14159265,
-          dateExample: new Date("December 10, 1815"),
-          arrayExample: [5, true, "hello"],
-          nullExample: null,
-          objectExample: {
-              a: 5,
-              b: {
-                  nested: "foo"
-              }
-          }
-          */
-      };
-      db.collection("Animals").doc(docData.iD).set(docData);
+      }
+      if(docData.iD==""||docData.birthdate==null||docData.breed==""||docData.ownerTc==""){
+        $('#errorModal').modal('toggle');
+      }else{
+      db.collection("Animals").doc(docData.iD).set(docData).then($('#exampleModal').modal('toggle'));
+      }
     });
     
     firebase.auth().onAuthStateChanged(firebaseUser => {

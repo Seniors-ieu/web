@@ -50,9 +50,27 @@
           residenceAddress:document.getElementById("residenceAddress").value,
           tc:document.getElementById("tc").value,
       };
-      db.collection("Owners").doc(docData.tc).set(docData);
+      if(docData.name==""||docData.lastName==""||docData.tc==""){
+        $('#errorModal').modal('toggle');
+      }else{
+        db.collection("Owners").doc(docData.tc).set(docData).then($('#exampleModal').modal('toggle'));
+      }
     });
-    
+    setTimeout(function(){
+      const username = document.getElementById("username");
+      var userid = firebase.auth().currentUser.uid;
+      firebase.firestore().collection("Users").doc(userid).get().then(function(doc) {
+        if (doc.exists) {
+          console.log(doc.data().nameLastname);
+          username.innerHTML = doc.data().nameLastname;
+        } else {
+            // doc.data() will be undefined in this case
+            console.log(doc);
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+    },500);
     firebase.auth().onAuthStateChanged(firebaseUser => {
       if(!firebaseUser){
         document.location.href = 'index.html';

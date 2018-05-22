@@ -38,14 +38,15 @@
                             <ul class="dropdown-menu">					
                                 <li><a href="#" class="dropdown-item" id="initialize">Yeni Hayvan</a></li>
                                 <li><a href="#" class="dropdown-item" id="ownerinit">Yeni Hayvan Sahibi</a></li>
+                                <li><a href="#" class="dropdown-item" id="newuser">Yeni Kullanıcı</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link" id="replace">Etiket Yenileme</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link" id="vetget">Veteriner Şifresi Alma</a></li>
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right ml-auto">
                         <li class="nav-item dropdown">
-                            <a href="#" data-toggle="dropdown" class="nav-link user-action">Hoşgeldiniz, Hüseyin Bulut <b class="caret"></b></a>
+                            <a href="#" data-toggle="dropdown" class="nav-link user-action">Hoşgeldiniz, <span id="username"></span> <b class="caret"></b></a>
                         </li>
                         <a href="#" class="nav-link" id="logout">Çıkış</a>
                     </ul>
@@ -54,12 +55,12 @@
             <div class="form container">
                 <div class="row">
                 <div class="form-group col-md-6">
-                    <label for="animalId">Küpe Numarası:</label>
-                    <input type="text" class="form-control" id="animalId" maxlength="13">
+                    <label for="animalId"><span class="star">*</span> Küpe Numarası:</label>
+                    <input type="text" class="form-control" id="animalId" maxlength="11" required>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="birthDate">Doğum Tarihi:</label>
-                    <input type="date" class="form-control" id="birthDate">
+                    <label for="birthDate"><span class="star">*</span>Doğum Tarihi:</label>
+                    <input type="date" class="form-control" id="birthDate" required>
                 </div>
                 </div>
                 <div class="row">
@@ -72,14 +73,14 @@
                     <label for="genderfemale">Dişi</label>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="breed">Cins:</label>
-                    <input type="text" class="form-control" id="breed">
+                    <label for="breed"><span class="star">*</span>Cins:</label>
+                    <input type="text" class="form-control" id="breed" required>
                 </div>
                 </div>
                 <div class="row">
                 <div class="form-group col-md-6">
                     <label for="motherId">Anne Küpe Numarası:</label>
-                    <input type="text" class="form-control" id="motherId" maxlength="13">
+                    <input type="text" class="form-control" id="motherId" maxlength="11">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="birthFarmNo">Doğduğu Çiftlik No:</label>
@@ -139,13 +140,52 @@
 
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="ownerTc">Sahip T. C. Kimlik No:</label>
+                        <label for="ownerTc"><span class="star">*</span>Sahip T. C. Kimlik No:</label>
                         <input type="text" class="form-control" id="ownerTc" maxlength="11">
                     </div>
                 </div>
                 
                 <input class="btn btn-sm btn-danger" type="submit" value="Sisteme Kaydet" id="create">
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Yeni hayvan kaydı</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    Kayıt başarıyla gerçekleştirildi.
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary">Yazdır</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="errorModalLabel">Hata!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        Lütfen * ile işaretlenmiş alanları doldurun
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
         </div>
         
 

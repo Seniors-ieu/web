@@ -12,46 +12,23 @@
     var db = firebase.firestore();
 
     const btnLogout = document.getElementById("logout");
-    const btnInit = document.getElementById("initialize");
-    const btnOwnerInit = document.getElementById("ownerinit");
     const btnDB = document.getElementById("database");
-
+    const btnVetGet = document.getElementById("vetget");
     const btnCall = document.getElementById("call");
-    const btnReplace = document.getElementById("replace");
-    const btnUpdate = document.getElementById("update");
+
     //Datatable
     
     
     btnLogout.addEventListener('click', e => {
       firebase.auth().signOut();
     });
-    btnInit.addEventListener('click', e => {
-      document.location.href = 'initialize.html';
-    });
     btnDB.addEventListener('click', e => {
-      document.location.href = 'database.html';
+      document.location.href = 'databasevet.html';
     });
-    btnReplace.addEventListener('click', e => {
-      document.location.href = 'replace.html';
+
+    btnVetGet.addEventListener('click', e => {
+      document.location.href = 'vetgetkey.html';
     });
-    btnOwnerInit.addEventListener('click', e => {
-      document.location.href = 'ownerinit.html';
-    });
-    setTimeout(function(){
-      const username = document.getElementById("username");
-      var userid = firebase.auth().currentUser.uid;
-      firebase.firestore().collection("Users").doc(userid).get().then(function(doc) {
-        if (doc.exists) {
-          console.log(doc.data().nameLastname);
-          username.innerHTML = doc.data().nameLastname;
-        } else {
-            // doc.data() will be undefined in this case
-            console.log(doc);
-        }
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    });
-    },500);
     
     btnCall.addEventListener('click', e => {
       const id = document.getElementById("RetrieveAnimalId").value;
@@ -120,36 +97,21 @@
         
       
     });
-
-    btnUpdate.addEventListener('click', e=>{
-      const id = document.getElementById("RetrieveAnimalId").value;
-      db.collection("Animals").doc(id).update({
-                "iD" : document.getElementById("animalId").value,
-                "birthdate":document.getElementById("birthDate").value,
-                "alumVaccine":document.getElementById("alumVaccine").value,
-                "birthFarmNo" : document.getElementById("birthFarmNo").value,
-                "birthdate":document.getElementById("birthDate").value,
-                "breed":document.getElementById("breed").value,
-                "female":document.getElementById("gender").value,
-                "brusellosisVaccine":document.getElementById("brusellosisVaccine").value,
-                "currentFarmNo":document.getElementById("currentFarmNo").value,
-                "deathDate":document.getElementById("deathDate").value,
-                "deathPlace":document.getElementById("deathPlace").value,
-                //document.getElementById("eSignDirector").value = myData.eSignDirector;
-                //document.getElementById("eSignOwner").value = myData.eSignOwner;
-                "exportCountryCode":document.getElementById("exportCountryCode").value,
-                "exportDate":document.getElementById("exportDate").value,
-                "farmChangeDate":document.getElementById("farmChangeDate").value,
-                "motherId":document.getElementById("motherId").value,
-                "ownerTc":document.getElementById("tc").value,
-                "pasturellaVaccine": document.getElementById("pasturellaVaccine").value,
-                "otherVaccine":document.getElementById("otherVaccine").value,
-                //document.getElementById("operations").value = myData.Operations;
+    setTimeout(function(){
+        const username = document.getElementById("username");
+        var userid = firebase.auth().currentUser.uid;
+        firebase.firestore().collection("Users").doc(userid).get().then(function(doc) {
+          if (doc.exists) {
+            console.log(doc.data().nameLastname);
+            username.innerHTML = doc.data().nameLastname;
+          } else {
+              // doc.data() will be undefined in this case
+              console.log(doc);
+          }
+      }).catch(function(error) {
+          console.log("Error getting document:", error);
       });
-      
-
-    });
-    
+      },500);
     firebase.auth().onAuthStateChanged(firebaseUser => {
       if(!firebaseUser){
         document.location.href = 'index.html';

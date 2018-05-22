@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="css/index.css">
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
     </head>
     <body style="background-color: rgba(0, 0, 0, 0.1) !important;">
         <div class="header">
@@ -43,8 +44,8 @@
                                   <input class="btn btn-lg btn-success btn-block" type="submit" value="Giriş" id="login">
                               </fieldset>
                         </div>
-                        <div class="modal-footer">
-
+                        <div class="modal-footer" style="max-height: 1.2rem">
+                            <p id="err" style="color:red"></p>
                         </div>
                     </div>
                 </div>

@@ -12,28 +12,21 @@
     var db = firebase.firestore();
 
     const btnLogout = document.getElementById("logout");
-    const btnInit = document.getElementById("initialize");
-    const btnOwnerInit = document.getElementById("ownerinit");
+
+
     const btnDB = document.getElementById("database");
     const btnVetGet = document.getElementById("vetget");
-    const btnReplace = document.getElementById("replace");
+
     const btnEncrypt = document.getElementById("encrypt");
     
     btnLogout.addEventListener('click', e => {
       firebase.auth().signOut();
     });
-    btnInit.addEventListener('click', e => {
-      document.location.href = 'initialize.html';
-    });
+
     btnDB.addEventListener('click', e => {
-      document.location.href = 'database.html';
+      document.location.href = 'databasevet.html';
     });
-    btnReplace.addEventListener('click', e => {
-      document.location.href = 'replace.html';
-    });
-    btnOwnerInit.addEventListener('click', e => {
-      document.location.href = 'ownerinit.html';
-    });
+
     btnVetGet.addEventListener('click', e => {
       document.location.href = 'vetgetkey.html';
     });
@@ -67,7 +60,21 @@
     });
     
 }());
-
+setTimeout(function(){
+  const username = document.getElementById("username");
+  var userid = firebase.auth().currentUser.uid;
+  firebase.firestore().collection("Users").doc(userid).get().then(function(doc) {
+    if (doc.exists) {
+      console.log(doc.data().nameLastname);
+      username.innerHTML = doc.data().nameLastname;
+    } else {
+        // doc.data() will be undefined in this case
+        console.log(doc);
+    }
+}).catch(function(error) {
+    console.log("Error getting document:", error);
+});
+},500);
 function download(filename, text) {
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));

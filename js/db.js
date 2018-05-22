@@ -15,7 +15,7 @@
     const btnInit = document.getElementById("initialize");
     const btnOwnerInit = document.getElementById("ownerinit");
     const btnDB = document.getElementById("database");
-    const btnVetGet = document.getElementById("vetget");
+
     const btnCall = document.getElementById("call");
     const btnReplace = document.getElementById("replace");
     //Datatable
@@ -39,9 +39,7 @@
     btnOwnerInit.addEventListener('click', e => {
       document.location.href = 'ownerinit.html';
     });
-    btnVetGet.addEventListener('click', e => {
-      document.location.href = 'vetgetkey.html';
-    });
+
     
     btnCall.addEventListener('click', e => {
       const id = document.getElementById("RetrieveAnimalId").value;

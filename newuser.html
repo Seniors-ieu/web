@@ -38,7 +38,7 @@
                             <ul class="dropdown-menu">					
                                 <li><a href="#" class="dropdown-item" id="initialize">Yeni Hayvan</a></li>
                                 <li><a href="#" class="dropdown-item" id="ownerinit">Yeni Hayvan Sahibi</a></li>
-                                <li><a href="#" class="dropdown-item" id="newuser">Yeni Kullanıcı</a></li>
+                                <li><a href="#" class="dropdown-item" id="ownerinit">Yeni Kullanıcı</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link" id="replace">Etiket Yenileme</a></li>
@@ -52,74 +52,45 @@
                     </ul>
                 </div>
             </nav>
-            <div class="form container">
-                <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="farmAddress">Çiftlik Adresi:</label>
-                    <input type="text" class="form-control" id="farmAddress">
+            <div class="form">
+                    <div class="form-group form-inline col-md-6">
+                            <label for="name">Ad soyad:</label>
+                            <input type="text" class="form-control form-inline" id="name" placeholder="Ad Soyad">
+                        </div>
+                <div class="form-group form-inline col-md-6">
+                    <label for="username">Kullanıcı emaili:</label>
+                    <input type="email" class="form-control form-inline" id="useremail" placeholder="Email">
+                </div>
+                <div class="form-group form-inline col-md-6">
+                    <label for="pass">Şifre:</label>
+                    <input type="password" class="form-control form-inline" id="pass" placeholder="Şifre">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="farmCityCode">Çiftlik Şehir Kodu:</label>
-                    <input type="text" class="form-control" id="farmCityCode" maxlength="2">
+                        <label>Kullanıcı tipi:</label>
+                    <select class="form-control form-inline" id= "type">
+                        <option value="2">Veteriner</option>
+                        <option value="1">Bakanlık Çalışanı</option>
+                    </select>
                 </div>
-                </div>
-                <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="farmEmail">Email:</label>
-                    <input type="text" class="form-control" id="farmEmail">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="farmFaxNumber">Fax:</label>
-                    <input type="text" class="form-control" id="farmFaxNumber" maxlength="10">
-                </div>
-                </div>
-                <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="farmGeoCoordinate">Çiftlik Koordinatları:</label>
-                    <input type="text" class="form-control" id="farmGeoCoordinate" maxlength="22">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="farmNo">Çiftlik No:</label>
-                    <input type="text" class="form-control" id="farmNo" maxlength="10">
-                </div>
-                </div>
-                <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="farmPhoneNumber">Çiftlik Telefon Numarası:</label>
-                    <input type="text" class="form-control" id="farmPhoneNumber" maxlength="10">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="name"><span class="star">*</span>İsim:</label>
-                    <input type="text" class="form-control" id="name" maxlength="16">
-                </div>
-                </div>
-                <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="lastName"><span class="star">*</span>Soyisim:</label>
-                    <input type="text" class="form-control" id="lastName" maxlength="16">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="residenceAddress">İkamet Adresi:</label>
-                    <input type="text" class="form-control" id="residenceAddress">
-                </div>
-                </div>
-                <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="tc"><span class="star">*</span>TC Kimlik No:</label>
-                    <input type="text" class="form-control" id="tc" maxlength="11">
+                <div class="col-md-6">
+                        <input class="btn btn-sm btn-danger form-inline "  type="submit" value="Kaydet" id="register">
                 </div>
                 
-                </div>
-                
-                <input class="btn btn-sm btn-danger" type="submit" value="Sisteme Kaydet" id="create">
             </div>
+            
+
+
+
+
+
+
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Yeni hayvan sahibi kaydı</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Yeni hayvan kaydı</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -129,6 +100,7 @@
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+
                         </div>
                     </div>
                     </div>
@@ -144,7 +116,7 @@
                             </button>
                             </div>
                             <div class="modal-body">
-                            Lütfen * ile işaretlenmiş alanları doldurun
+                                Kullanıcı adı ya da şifre hatalı girildi.
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
@@ -160,6 +132,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="js/ownerinit.js"></script>
+        <script src="js/addnewuser.js"></script>
+
     </body>
 </html>
