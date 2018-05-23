@@ -312,3 +312,6 @@ input[type=checkbox], input[type=radio] {
     color:red;
 }
 
+.float-none{
+    float: none;
+}

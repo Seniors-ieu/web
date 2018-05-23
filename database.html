@@ -53,14 +53,16 @@
                 </div>
             </nav>
             <div class="form ">
-                <div class="form-group form-inline ">
-                    <label for="animalId">Küpe numarasıyla arama:</label>
-                    <input type="text" class="form-control form-inline" id="RetrieveAnimalId">
-                </div>
-                <input class="btn btn-sm btn-danger " type="submit" value="Çağır" id="call">
+                        <select class="form-control form-inline col-md-4 float-none" id= "type">
+                                <option value="1">Küpe numarasıyla arama:</option>
+                                <option value="2">T. C. Kimlik ile arama:</option>
+                        </select>
+                    <input type="text" class="form-control form-inline col-md-4 float-none" id="RetrieveAnimalId" maxlength="11">
+
+                <input class="btn btn-sm btn-danger float-none" type="submit" value="Çağır" id="call">
             </div>
 
-            <div class="form container ">
+            <div class="form container" id="showAnimalInfo">
                     <div class="row">
                     <div class="form-group col-md-6">
                         <label for="animalId">Küpe Numarası:</label>
@@ -193,14 +195,28 @@
                             </div>
                             <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="tc">TC Kimlik No:</label>
+                                <label for="tc">T. C. Kimlik No:</label>
                                 <input type="text" class="form-control" id="tc">
                             </div>
-                            
+                            <div class="form-group col-md-6">
                             </div>
-                    
+                            </div>
+                        <input class="btn btn-sm btn-danger" type="submit" value="Diğer hayvanları" id="others">
                     <input class="btn btn-sm btn-danger" type="submit" value="Sisteme Kaydet" id="update">
-                </div>
+            </div>
+
+            <div class="container" id="showOwner">
+                <table id="example" class="display" cellspacing="0" width="90%">
+                    <thead>
+                        <tr>
+                            <th>Hayvan Listesi</th>
+                        </tr>
+                        <tr></tr>
+                    </thead>
+                   <tr></tr>
+                </table>
+            </div>
+
         </div>
         
 

@@ -17,6 +17,10 @@
     const btnDB = document.getElementById("database");
     const btnReplace = document.getElementById("replace");
     const btnCreate = document.getElementById("create");
+    const btnNew = document.getElementById("newuser");
+    btnNew.addEventListener('click', e => {
+      document.location.href = 'newuser.html';
+    });
     
     btnLogout.addEventListener('click', e => {
       firebase.auth().signOut();

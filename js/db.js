@@ -49,21 +49,21 @@
        db.collection("Animals")
        .where("exportCountryCode", "==", "TR")
        .onSnapshot(function(snapshot) {
-           
+        $('#example').DataTable( {
+          data:snapshot,
+          columns: [
+            {data: "iD" },
+          {title: "birthdate" },
+          {title: "birthFarmNo"},
+          {title: "breed"}]
+          
+      } );
            
            snapshot.forEach(function (userSnapshot) {
             console.log(userSnapshot.data())
-            $(document).ready(function() {
-              $('#myTable').DataTable( {
-                data:snapshot,
-                columns: [
-                  {data: "iD" },
-                {data: "birthdate" },
-                {data: "birthFarmNo"},
-                {data: "breed"}]
-                
-            } );
-          } );
+
+              
+
            });
        });
 
